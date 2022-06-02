@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:programming_hero_quiz_game/screens/quiz_screen/quiz_screen.dart';
 
 class MainMenu extends StatelessWidget {
   const MainMenu({Key? key}) : super(key: key);
@@ -30,6 +31,7 @@ class MainMenu extends StatelessWidget {
             Container(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: Column(
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   const Text("Highscore", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),),
                   const Text("500 point", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),),
@@ -38,7 +40,12 @@ class MainMenu extends StatelessWidget {
             ),
             const Spacer(), // 1/6
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const QuizScreen()),
+                );
+              },
               child: Container(
                 width: 220,
                 height: 40,
@@ -54,7 +61,7 @@ class MainMenu extends StatelessWidget {
                 ),
               ),
             ),
-            Spacer(flex: 2), // it will take 2/6 spaces
+            const Spacer(flex: 2), // it will take 2/6 spaces
           ],
         ),
       ),
